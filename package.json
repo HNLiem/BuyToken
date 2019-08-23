@@ -11,7 +11,7 @@
   },
   "author": "Gregory",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "lite-server": "^2.5.4"
   }
 }

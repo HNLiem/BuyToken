@@ -6,9 +6,12 @@ contract DappTokenSale {
     address payable admin;
     DappToken public tokenContract;
     uint256 public tokenPrice;
+    uint256 public productPrice;
     uint256 public tokensSold;
+    address payable owner;
 
     event Sell(address _buyer, uint256 _amount);
+  
 
     constructor(DappToken _tokenContract, uint256 _tokenPrice) public {
         admin = msg.sender;
@@ -28,6 +31,10 @@ contract DappTokenSale {
         tokensSold += _numberOfTokens;
 
         emit Sell(msg.sender, _numberOfTokens);
+    }
+    function buyProduct(uint256 _numberOfProduct) public payable {
+        require(msg.value >= productPrice);
+        
     }
 
     function endSale() public {
